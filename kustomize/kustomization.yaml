@@ -8,4 +8,4 @@ resources:
 # Permite cambiar la versión/tag de la imagen fácilmente
 images:
   - name: nginxdemos/hello
-    newTag: "plain-text"
+    newTag: "0.4"
