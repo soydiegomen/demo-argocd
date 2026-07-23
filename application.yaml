@@ -11,8 +11,8 @@ spec:
 
   source:
     repoURL: https://github.com/soydiegomen/demo-argocd.git
-    targetRevision: basic-version
-    path: dev
+    targetRevision: kustomize
+    path: kustomize
   destination: 
     server: https://kubernetes.default.svc
     namespace: demo-argocd
