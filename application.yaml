@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-argocd
+  namespace: argocd
+  finalizers:
+    # Activa el borrado en cascada (Foreground deletion por defecto)
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/soydiegomen/demo-argocd.git
+    targetRevision: helm
+    path: helm-chart
+    # Configuración de sobreescritura de Helm
+    helm:
+      # Puedes sobreescribir valores del values.yaml directamente aquí
+      parameters:
+        - name: image.tag
+          value: "plain-text"
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: demo-argocd
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true

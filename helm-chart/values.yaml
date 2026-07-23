@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: nginxdemos/hello
+  pullPolicy: IfNotPresent
+  tag: "latest" # <-- Argo CD sobreescribirá este valor o leerá los cambios de este campo
+
+service:
+  type: NodePort
+  port: 8080
+  targetPort: 80
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
