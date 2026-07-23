@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: demo-argocd
-        image: nanajanashia/argocd-app:1.0
+        image: nginxdemos/hello:0.1
         ports:
-        - containerPort: 8080
+        - containerPort: 80

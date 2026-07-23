@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/soydiegomen/demo-argocd.git
-    targetRevision: first-steps
+    targetRevision: basic-version
     path: dev
   destination: 
     server: https://kubernetes.default.svc
