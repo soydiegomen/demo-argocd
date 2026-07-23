@@ -11,8 +11,14 @@ spec:
 
   source:
     repoURL: https://github.com/soydiegomen/demo-argocd.git
-    targetRevision: kustomize
-    path: kustomize
+    targetRevision: helm
+    path: helm-chart
+    # Configuración de sobreescritura de Helm
+    helm:
+      # Puedes sobreescribir valores del values.yaml directamente aquí
+      parameters:
+        - name: image.tag
+          value: "plain-text"
   destination: 
     server: https://kubernetes.default.svc
     namespace: demo-argocd
